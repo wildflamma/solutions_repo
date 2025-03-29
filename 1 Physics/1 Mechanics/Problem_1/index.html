@@ -172,6 +172,69 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
+<h2 id="motivation">Motivation</h2>
+<p>Projectile motion, while seemingly simple, offers a rich playground for exploring fundamental principles of physics. The problem is straightforward: analyze how the range of a projectile depends on its angle of projection. Yet, beneath this simplicity lies a complex and versatile framework. The equations governing projectile motion involve both linear and quadratic relationships, making them accessible yet deeply insightful.</p>
+<p>What makes this topic particularly compelling is the number of free parameters involved in these equations, such as initial velocity, gravitational acceleration, and launch height. These parameters give rise to a diverse set of solutions that can describe a wide array of real-world phenomena, from the arc of a soccer ball to the trajectory of a rocket.</p>
+<h2 id="theoretical-foundation">Theoretical Foundation</h2>
+<p>The equations governing projectile motion can be derived using Newton’s second law:</p>
+<ul>
+<li>Horizontal motion:
+  $$ x = v_0 \cos(\theta) t $$</li>
+<li>Vertical motion:
+  $$y = v_0 \sin(\theta) t - \frac{1}{2} g t^2 $$</li>
+</ul>
+<p>To find the range, we determine the time when the projectile returns to the ground $$ y = 0 $$:
+  $$ t = \frac{2 v_0 \sin(\theta)}{g} $$</p>
+<p>Substituting this into the horizontal equation, the range $$ R $$ is given by:
+  $$ R = \frac{v_0^2 \sin(2\theta)}{g} $$</p>
+<p>This formula highlights how range depends on the angle of projection, with a maximum occurring at $$ \theta = 45^\circ $$.</p>
+<h2 id="analysis-of-the-range">Analysis of the Range</h2>
+<ul>
+<li>The range is maximized at $$ 45^\circ $$ .</li>
+<li>For a fixed initial velocity, doubling the gravitational acceleration halves the range.</li>
+<li>If air resistance is considered, the range is reduced.</li>
+</ul>
+<h2 id="practical-applications">Practical Applications</h2>
+<ul>
+<li>Sports (soccer, basketball, javelin throw)</li>
+<li>Engineering (missile trajectories, ballistics)</li>
+<li>Space exploration (rocket launches)</li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<p>We implement a Python script to simulate projectile motion and visualize range vs. angle.</p>
+<h2 id="_1"><img alt="alt text" src="../image-3.png"/></h2>
+<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
+<h2 id="motivation_1">Motivation</h2>
+<p>The forced damped pendulum is a captivating example of a physical system with intricate behavior resulting from the interplay of damping, restoring forces, and external driving forces. These phenomena serve as a foundation for understanding complex real-world systems, such as driven oscillators, climate systems, and mechanical structures under periodic stress.</p>
+<h2 id="theoretical-foundation_1">Theoretical Foundation</h2>
+<p>The equation governing a forced damped pendulum is:</p>
+<div class="arithmatex">\[ \ddot{\theta} + b \dot{\theta} + \frac{g}{L} \sin(\theta) = A \cos(\omega t) \]</div>
+<p>For small angles, $$ \sin(\theta) \approx \theta $$, leading to a linearized equation that can be solved analytically. However, for large angles, numerical solutions are needed.</p>
+<h2 id="analysis-of-dynamics">Analysis of Dynamics</h2>
+<ul>
+<li>Low damping leads to oscillations close to simple harmonic motion.</li>
+<li>At resonance, the system absorbs maximum energy.</li>
+<li>With high forcing, chaotic behavior can emerge.</li>
+</ul>
+<h2 id="practical-applications_1">Practical Applications</h2>
+<ul>
+<li>Energy harvesting</li>
+<li>Suspension bridges (Tacoma Narrows collapse)</li>
+<li>Oscillating circuits (RLC circuits)</li>
+</ul>
+<h2 id="implementation_1">Implementation</h2>
+<p>We solve the equation numerically using the Runge-Kutta method.
+<img alt="alt text" src="../image-5.png"/></p>
+<h3 id="phase-space-analysis">Phase Space Analysis</h3>
+<p>We also plot the phase portrait.</p>
+<p><img alt="alt text" src="../image-6.png"/>
+```</p>
+<p>Deliverables
+- Theoretical derivations of projectile motion and forced damped pendulum dynamics.
+- Python implementations for simulations and visualizations.
+- Discussions on real-world applications and model limitations.</p>
+<p>These analyses provide insights into classical mechanics while connecting them to modern engineering and s![alt text]cientific applications.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
