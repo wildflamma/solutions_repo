@@ -37,5 +37,6 @@ We also plot the phase portrait.
 - Python implementations for simulations and visualizations.
 - Discussions on real-world applications and model limitations.
 
-These analyses provide insights into classical mechanics while connecting them to modern engineering
+These analyses provide insights into classical mechanics while connecting them to modern engineering.
+
 
