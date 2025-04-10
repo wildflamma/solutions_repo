@@ -58,6 +58,22 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#escape-velocities-and-cosmic-velocities">Escape Velocities and Cosmic Velocities,</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#escape-velocities-and-cosmic-velocities_1">📘 Escape Velocities and Cosmic Velocities</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#motivation">🚀 Motivation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#definitions-of-cosmic-velocities">🌌 Definitions of Cosmic Velocities</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#python-simulation-visualization">🧠 Python Simulation &amp; Visualization</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#results-discussion">🌍 Results &amp; Discussion</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#application-in-space-exploration">🛰️ Application in Space Exploration</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_3/">Problem 3</a>
@@ -172,6 +188,97 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h2 id="escape-velocities-and-cosmic-velocities"><strong>Escape Velocities and Cosmic Velocities</strong>,</h2>
+<h2 id="escape-velocities-and-cosmic-velocities_1">📘 Escape Velocities and Cosmic Velocities</h2>
+<h3 id="motivation">🚀 Motivation</h3>
+<p>Understanding the energy required to overcome gravitational attraction is central to spaceflight. Escape velocity describes this energy threshold. The concept is extended to <strong>cosmic velocities</strong>, which define the speeds needed for various stages of orbital and interplanetary motion.</p>
+<hr/>
+<h3 id="definitions-of-cosmic-velocities">🌌 Definitions of Cosmic Velocities</h3>
+<h4 id="1-first-cosmic-velocity-orbital-velocity">1️⃣ First Cosmic Velocity (Orbital Velocity)</h4>
+<ul>
+<li><strong>Definition:</strong> Minimum horizontal speed required to maintain a stable circular orbit around a planet without additional propulsion.</li>
+<li><strong>Formula:</strong>
+  $$
+  v_1 = \sqrt{\frac{GM}{R}}
+  $$
+  where:</li>
+<li><span class="arithmatex">\( G \)</span>: Gravitational constant</li>
+<li><span class="arithmatex">\( M \)</span>: Mass of the planet</li>
+<li><span class="arithmatex">\( R \)</span>: Radius from the center of the planet to the object</li>
+</ul>
+<h4 id="2-second-cosmic-velocity-escape-velocity">2️⃣ Second Cosmic Velocity (Escape Velocity)</h4>
+<ul>
+<li><strong>Definition:</strong> Speed needed to completely escape a planet’s gravitational pull without further propulsion.</li>
+<li><strong>Formula:</strong>
+  $$
+  v_2 = \sqrt{2GM/R} = \sqrt{2} \cdot v_1
+  $$</li>
+</ul>
+<h4 id="3-third-cosmic-velocity-solar-escape-velocity">3️⃣ Third Cosmic Velocity (Solar Escape Velocity)</h4>
+<ul>
+<li><strong>Definition:</strong> Speed needed to escape the gravitational influence of the Sun, starting from Earth’s orbit.</li>
+<li><strong>Formula:</strong>
+  $$
+      v_3 = \sqrt{2GM_{\odot}/R_{\text{orbit}}}
+  $$
+  where:</li>
+<li>
+<div class="arithmatex">\[ M_{\odot} : Mass of the Sun \]</div>
+</li>
+<li>$$ R_{\text{orbit}} : Distance from the Sun $$
+  (e.g., Earth's orbital radius) </li>
+</ul>
+<hr/>
+<h3 id="python-simulation-visualization">🧠 Python Simulation &amp; Visualization</h3>
+<p>Below is the Python code that computes and visualizes the first, second, and third cosmic velocities for Earth, Mars, and Jupiter:</p>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<hr/>
+<h3 id="results-discussion">🌍 Results &amp; Discussion</h3>
+<table>
+<thead>
+<tr>
+<th>Planet</th>
+<th>First Cosmic Velocity (m/s)</th>
+<th>Second Cosmic Velocity (m/s)</th>
+<th>Third Cosmic Velocity (m/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Earth</td>
+<td>~7,900</td>
+<td>~11,200</td>
+<td>~42,100</td>
+</tr>
+<tr>
+<td>Mars</td>
+<td>~3,600</td>
+<td>~5,000</td>
+<td>~34,100</td>
+</tr>
+<tr>
+<td>Jupiter</td>
+<td>~42,000</td>
+<td>~59,500</td>
+<td>~18,500</td>
+</tr>
+</tbody>
+</table>
+<h4 id="key-observations">📌 Key Observations</h4>
+<ul>
+<li>Jupiter has the highest escape velocity due to its massive gravity.</li>
+<li>The third cosmic velocity is highest from Earth due to its proximity to the Sun.</li>
+<li>The first and second velocities increase with a planet’s mass and decrease with radius.</li>
+</ul>
+<hr/>
+<h3 id="application-in-space-exploration">🛰️ Application in Space Exploration</h3>
+<ul>
+<li><strong>Satellites</strong>: Launched at first cosmic velocity to maintain orbit.</li>
+<li><strong>Planetary Missions</strong>: Require second cosmic velocity to exit Earth's gravity.</li>
+<li><strong>Interstellar Probes (e.g., Voyager)</strong>: Must reach third cosmic velocity to leave the Solar System.</li>
+<li><strong>Fuel &amp; Engineering Constraints</strong>: Achieving higher velocities demands more efficient propulsion. </li>
+</ul>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
