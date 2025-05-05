@@ -172,6 +172,85 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-3">Problem 3</h1>
+<hr/>
+<h1 id="trajectories-of-a-freely-released-payload-near-earth"><strong>Trajectories of a Freely Released Payload Near Earth</strong></h1>
+<h2 id="1-introduction"><strong>1. Introduction</strong></h2>
+<p>When a payload is released from a moving rocket near Earth, it can follow different types of trajectories—elliptical, parabolic, or hyperbolic—depending on its initial velocity and direction. These trajectories are governed by Newtonian gravity and are foundational in space mission planning, from orbital insertions to interplanetary escape.</p>
+<hr/>
+<h2 id="2-theoretical-background"><strong>2. Theoretical Background</strong></h2>
+<p>We analyze motion under the influence of gravity using:</p>
+<ul>
+<li><strong>Newton’s Law of Universal Gravitation</strong>:</li>
+</ul>
+<p>$$
+  F = G \frac{M_e m}{r^2}
+  $$</p>
+<ul>
+<li><strong>Orbital Energy Equation</strong> (specific mechanical energy):</li>
+</ul>
+<p>$$
+  \epsilon = \frac{v^2}{2} - \frac{GM_e}{r}
+  $$</p>
+<p>Where:</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\epsilon &lt; 0\)</span> → elliptical orbit</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\epsilon = 0\)</span> → parabolic escape trajectory</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\epsilon &gt; 0\)</span> → hyperbolic trajectory</p>
+</li>
+<li>
+<p><strong>Escape Velocity</strong>:</p>
+</li>
+</ul>
+<p>$$
+  v_{esc} = \sqrt{\frac{2GM_e}{r}}
+  $$</p>
+<hr/>
+<h2 id="3-simulation-method"><strong>3. Simulation Method</strong></h2>
+<p>We simulate the payload motion using the velocity-Verlet or Euler method:</p>
+<ul>
+<li>Define initial position and velocity</li>
+<li>Apply gravitational acceleration at each time step</li>
+<li>Update position and velocity iteratively</li>
+</ul>
+<hr/>
+<h2 id="4-python-simulation"><strong>4. Python Simulation</strong></h2>
+<p><img alt="alt text" src="../image-5.png"/></p>
+<hr/>
+<h2 id="5-analysis"><strong>5. Analysis</strong></h2>
+<h3 id="elliptical-orbit"><strong>Elliptical Orbit</strong></h3>
+<p>When the initial speed is less than escape velocity but more than required for a circular orbit, the object enters an elliptical orbit around Earth.</p>
+<h3 id="parabolic-trajectory"><strong>Parabolic Trajectory</strong></h3>
+<p>At exactly escape velocity, the trajectory becomes parabolic—barely escaping Earth's gravity with zero excess energy.</p>
+<h3 id="hyperbolic-trajectory"><strong>Hyperbolic Trajectory</strong></h3>
+<p>When the initial speed exceeds escape velocity, the object follows a hyperbolic path and escapes Earth with leftover kinetic energy.</p>
+<h3 id="sub-orbital-flight"><strong>Sub-Orbital Flight</strong></h3>
+<p>If the velocity is less than required for orbit, the payload reenters Earth's atmosphere and impacts the surface.</p>
+<hr/>
+<h2 id="6-applications"><strong>6. Applications</strong></h2>
+<ul>
+<li><strong>Orbital Insertion</strong>: Matching orbital velocity is critical for satellite deployment.</li>
+<li><strong>Reentry Scenarios</strong>: Understanding sub-orbital paths helps with crew capsule recovery.</li>
+<li><strong>Escape Trajectories</strong>: Required for interplanetary missions like Mars rovers.</li>
+</ul>
+<hr/>
+<h2 id="7-conclusion"><strong>7. Conclusion</strong></h2>
+<p>By adjusting initial conditions, we demonstrate all classical trajectory types near Earth. This simulation supports planning for satellite launches, reentry capsules, and interplanetary probes.</p>
+<h2 id="-">---</h2>
+<h1 id="enhanced-notebook-with-notes-and-diagrams">✅ Enhanced Notebook with Notes and Diagrams</h1>
+<h3 id="1-gravitational-field-around-earth"><strong>1. Gravitational Field Around Earth</strong></h3>
+<p>We start by visualizing the gravitational field and escape velocity curve to understand the influence of Earth’s gravity.</p>
+<p><img alt="alt text" src="../image-6.png"/></p>
+<p><strong>Note:</strong> Gravitational force weakens with altitude, dropping rapidly beyond 300 km. This helps explain why less force is needed for trajectory corrections at high orbits.</p>
+<hr/>
+<h3 id="2-escape-velocity-vs-altitude"><strong>2. Escape Velocity vs Altitude</strong></h3>
+<p><img alt="alt text" src="../image-7.png"/></p>
+<p><strong>Note:</strong> Escape velocity at Earth's surface is \~11.2 km/s, but it decreases with altitude. At 300 km, it’s about 10.9 km/s—important for mission planners choosing release altitudes.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
