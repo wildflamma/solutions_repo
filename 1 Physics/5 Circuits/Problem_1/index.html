@@ -78,6 +78,16 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-algorithm-overview">🔧 1. Algorithm Overview</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-pseudocode">📜 2. Pseudocode</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-python-implementation">🧪 3. Python Implementation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-test-cases">🧪 4. Test Cases</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-efficiency-analysis-improvements">🧠 5. Efficiency Analysis &amp; Improvements</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,6 +182,92 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<p>Great! Let’s tackle <strong>Option 2: Advanced Task – Full Implementation</strong> using <strong>Python</strong> and the <strong>NetworkX</strong> library to represent and manipulate the circuit graph. This solution will include:</p>
+<ol>
+<li><strong>Algorithm Design &amp; Pseudocode</strong></li>
+<li><strong>Full Python Implementation</strong></li>
+<li><strong>Three Test Cases (including complex nested configurations)</strong></li>
+<li><strong>Efficiency Discussion &amp; Improvements</strong></li>
+</ol>
+<hr/>
+<h2 id="1-algorithm-overview">🔧 <strong>1. Algorithm Overview</strong></h2>
+<p><strong>Graph Representation:</strong></p>
+<ul>
+<li>Each node: A junction in the circuit.</li>
+<li>Each edge: A resistor, with a weight attribute for its resistance.</li>
+</ul>
+<p><strong>Reduction Rules:</strong></p>
+<ul>
+<li><strong>Series</strong>: If a node has exactly two edges and is not a terminal node (i.e., not a source or sink), combine the resistors in series:
+  <span class="arithmatex">\(R_{eq} = R_1 + R_2\)</span></li>
+<li><strong>Parallel</strong>: If multiple resistors connect the same two nodes, combine in parallel:
+  <span class="arithmatex">\(\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots\)</span></li>
+</ul>
+<hr/>
+<h2 id="2-pseudocode">📜 <strong>2. Pseudocode</strong></h2>
+<pre><code class="language-plaintext">Function calculate_equivalent_resistance(graph, source, target):
+
+    While graph has more than one edge between source and target:
+        1. For all node pairs (u, v):
+            a. If multiple edges exist between u and v:
+                Combine them in parallel:
+                    R_parallel = 1 / sum(1 / R for R in edges[u][v])
+                    Replace with one edge (u, v) with R_parallel
+
+        2. For each node n in graph:
+            If degree(n) == 2 and n not in [source, target]:
+                Let neighbors be [u, v]
+                Combine edges (u, n) and (n, v) in series:
+                    R_series = R(u,n) + R(n,v)
+                    Remove node n and add edge (u, v) with R_series
+
+    If single edge (source, target):
+        Return resistance of that edge
+    Else:
+        Apply Y-Δ or advanced transformations (not in base implementation)
+</code></pre>
+<hr/>
+<h2 id="3-python-implementation">🧪 <strong>3. Python Implementation</strong></h2>
+<p><img alt="alt text" src="../image.png"/>
+<img alt="alt text" src="../image-1.png"/>
+<img alt="alt text" src="../image-2.png"/>
+<img alt="alt text" src="../image-3.png"/></p>
+<hr/>
+<h2 id="4-test-cases">🧪 <strong>4. Test Cases</strong></h2>
+<pre><code class="language-python"># Test Case 1: Simple series
+G1 = nx.Graph()
+G1.add_edge('A', 'B', resistance=5)
+G1.add_edge('B', 'C', resistance=10)
+print("Test 1 (Series):", equivalent_resistance(G1, 'A', 'C'))  # Expected: 15
+
+# Test Case 2: Simple parallel
+G2 = nx.MultiGraph()
+G2.add_edge('A', 'B', resistance=6)
+G2.add_edge('A', 'B', resistance=3)
+print("Test 2 (Parallel):", equivalent_resistance(G2, 'A', 'B'))  # Expected: 2
+
+# Test Case 3: Nested combination
+G3 = nx.MultiGraph()
+G3.add_edge('A', 'B', resistance=2)
+G3.add_edge('B', 'C', resistance=2)
+G3.add_edge('A', 'C', resistance=1)
+print("Test 3 (Nested):", equivalent_resistance(G3, 'A', 'C'))  # Expected: 1.2
+</code></pre>
+<hr/>
+<h2 id="5-efficiency-analysis-improvements">🧠 <strong>5. Efficiency Analysis &amp; Improvements</strong></h2>
+<ul>
+<li><strong>Time Complexity</strong>: Each reduction pass (series or parallel) operates in linear time relative to the number of nodes and edges. Worst-case complexity is roughly <code>O(n^2)</code> due to repeated passes.</li>
+<li>
+<p><strong>Improvements</strong>:</p>
+</li>
+<li>
+<p>Implement <strong>Y-Δ transformations</strong> for general planar graphs.</p>
+</li>
+<li>Use <strong>graph contraction</strong> methods to identify reducible subnetworks faster.</li>
+<li>Add <strong>memoization</strong> or <strong>caching</strong> for repeated subgraphs in large circuits.</li>
+</ul>
+<hr/>
+<p><img alt="alt text" src="../image-4.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
