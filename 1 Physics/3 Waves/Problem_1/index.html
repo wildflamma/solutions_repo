@@ -172,6 +172,135 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<hr/>
+<h1 id="interference-patterns-on-a-water-surface-from-regular-polygon-sources">🌊 Interference Patterns on a Water Surface from Regular Polygon Sources</h1>
+<h2 id="motivation">Motivation</h2>
+<p>Interference occurs when waves from different sources overlap, creating complex patterns due to constructive (amplifying) and destructive (canceling) interference. This is vividly observable on a water surface, where circular ripples meet and interact.</p>
+<p>Understanding these patterns helps us visualize core principles of wave physics, including phase, coherence, and superposition. In this study, we analyze such patterns for coherent wave sources arranged in a <strong>regular polygon</strong>.</p>
+<hr/>
+<h2 id="problem-setup">Problem Setup</h2>
+<h3 id="assumptions">Assumptions</h3>
+<ul>
+<li>All sources emit circular, coherent water waves.</li>
+<li>Same amplitude <span class="arithmatex">\(A\)</span>, wavelength <span class="arithmatex">\(\lambda\)</span>, and frequency <span class="arithmatex">\(f\)</span>.</li>
+<li>Waves are in phase (phase difference = 0).</li>
+<li>Medium (water) is uniform.</li>
+</ul>
+<h3 id="wave-function">Wave Function</h3>
+<p>For a point source at position <span class="arithmatex">\(\mathbf{r}_i\)</span>, the wave at position <span class="arithmatex">\(\mathbf{r}\)</span> and time <span class="arithmatex">\(t\)</span> is given by:</p>
+<div class="arithmatex">\[
+u_i(\mathbf{r}, t) = A \cdot \cos(k|\mathbf{r} - \mathbf{r}_i| - \omega t)
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(A\)</span>: amplitude</li>
+<li><span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span>: wave number</li>
+<li><span class="arithmatex">\(\omega = 2\pi f\)</span>: angular frequency</li>
+<li><span class="arithmatex">\(|\mathbf{r} - \mathbf{r}_i|\)</span>: distance from source <span class="arithmatex">\(i\)</span> to point <span class="arithmatex">\(\mathbf{r}\)</span></li>
+</ul>
+<p>Total wave displacement:</p>
+<div class="arithmatex">\[
+u(\mathbf{r}, t) = \sum_{i=1}^{N} u_i(\mathbf{r}, t)
+\]</div>
+<hr/>
+<h2 id="python-simulation-square-4-sources">🔢 Python Simulation (Square: 4 Sources)</h2>
+<h2 id="_1"><img alt="alt text" src="../image.png"/></h2>
+<h2 id="observations-analysis">🔍 Observations &amp; Analysis</h2>
+<h3 id="constructive-interference">Constructive Interference</h3>
+<ul>
+<li>Occurs where wave crests from multiple sources align (phase match).</li>
+<li>Appears as <strong>bright ridges</strong> or intense colors in the plot.</li>
+</ul>
+<h3 id="destructive-interference">Destructive Interference</h3>
+<ul>
+<li>Occurs where crests and troughs cancel out.</li>
+<li>Visible as <strong>nulls or dark bands</strong> in the interference map.</li>
+</ul>
+<h3 id="pattern-symmetry">Pattern Symmetry</h3>
+<ul>
+<li>Because of the regular square arrangement, the pattern exhibits <strong>fourfold rotational symmetry</strong>.</li>
+<li>Interference maxima and minima appear periodically along radial directions.</li>
+</ul>
+<hr/>
+<h2 id="conclusion">🧠 Conclusion</h2>
+<p>This simulation illustrates how coherent sources arranged in a geometric pattern (here, a square) produce predictable, symmetric interference effects. It reinforces the power of wave superposition in understanding both physical and engineering systems, including optics, acoustics, and quantum mechanics.</p>
+<p>This approach can be extended to triangles, pentagons, or arbitrary source layouts to explore further wave phenomena.</p>
+<hr/>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Symmetry</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Triangle</td>
+<td>3-fold</td>
+<td>Interference zones form 120° radial symmetries.</td>
+</tr>
+<tr>
+<td>Square</td>
+<td>4-fold</td>
+<td>Interference lobes are evenly spaced at 90°.</td>
+</tr>
+<tr>
+<td>Pentagon</td>
+<td>5-fold</td>
+<td>More complex, but beautiful star-like symmetries.</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="key-takeaways">🔑 Key Takeaways:</h3>
+<ol>
+<li>
+<p><strong>Wave Superposition is Predictable and Patterned</strong>:</p>
+</li>
+<li>
+<p>The overlapping of waves from multiple point sources leads to stable regions of <strong>constructive</strong> and <strong>destructive interference</strong>, governed by distance and phase alignment.</p>
+</li>
+<li>
+<p><strong>Geometry Defines the Symmetry</strong>:</p>
+</li>
+<li>
+<p>The <strong>shape of the polygon</strong> (triangle, square, pentagon) determines the <strong>rotational symmetry</strong> of the resulting pattern:</p>
+<ul>
+<li><strong>Triangle</strong> → 3-fold symmetry</li>
+<li><strong>Square</strong> → 4-fold symmetry</li>
+<li><strong>Pentagon</strong> → 5-fold symmetry</li>
+</ul>
+</li>
+<li>
+<p><strong>Constructive Interference</strong>:</p>
+</li>
+<li>
+<p>Occurs where crests align → <strong>bright/intense regions</strong>.</p>
+</li>
+<li>
+<p>Symmetrically distributed from the center outward.</p>
+</li>
+<li>
+<p><strong>Destructive Interference</strong>:</p>
+</li>
+<li>
+<p>Occurs where crests and troughs cancel out → <strong>nulls or dark fringes</strong>.</p>
+</li>
+<li>
+<p>Forms a grid or radial node structure depending on the polygon.</p>
+</li>
+<li>
+<p><strong>Number of Sources Affects Complexity</strong>:</p>
+</li>
+<li>
+<p>More sources → denser interference zones and <strong>more intricate patterns</strong>.</p>
+</li>
+<li>For higher-order polygons, the central and radial features become more star-like and visually rich.</li>
+</ol>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
