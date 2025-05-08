@@ -72,16 +72,6 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#1-algorithm-overview">🔧 1. Algorithm Overview</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#2-pseudocode">📜 2. Pseudocode</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#3-python-implementation">🧪 3. Python Implementation</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#4-test-cases">🧪 4. Test Cases</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#5-efficiency-analysis-improvements">🧠 5. Efficiency Analysis &amp; Improvements</a>
-</li>
 </ul>
 </li>
 </ul>
@@ -182,92 +172,171 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p><strong>Option 2: Advanced Task – Full Implementation</strong> using <strong>Python</strong> and the <strong>NetworkX</strong> library to represent and manipulate the circuit graph. This solution will include:</p>
-<ol>
-<li><strong>Algorithm Design &amp; Pseudocode</strong></li>
-<li><strong>Full Python Implementation</strong></li>
-<li><strong>Three Test Cases (including complex nested configurations)</strong></li>
-<li><strong>Efficiency Discussion &amp; Improvements</strong></li>
-</ol>
 <hr/>
-<h2 id="1-algorithm-overview">🔧 <strong>1. Algorithm Overview</strong></h2>
-<p><strong>Graph Representation:</strong></p>
-<ul>
-<li>Each node: A junction in the circuit.</li>
-<li>Each edge: A resistor, with a weight attribute for its resistance.</li>
-</ul>
-<p><strong>Reduction Rules:</strong></p>
-<ul>
-<li><strong>Series</strong>: If a node has exactly two edges and is not a terminal node (i.e., not a source or sink), combine the resistors in series:
-  <span class="arithmatex">\(R_{eq} = R_1 + R_2\)</span></li>
-<li><strong>Parallel</strong>: If multiple resistors connect the same two nodes, combine in parallel:
-  <span class="arithmatex">\(\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots\)</span></li>
-</ul>
+<h1 id="simulating-the-effects-of-the-lorentz-force">🧲 <strong>Simulating the Effects of the Lorentz Force</strong></h1>
+<h2 id="overview">✨ Overview</h2>
+<p>This notebook demonstrates the <strong>dynamics of charged particles</strong> under electric and magnetic fields using the <strong>Lorentz Force Law</strong>. It builds simulations and visualizations for various field configurations—highlighting important physical phenomena like circular motion, helical paths, and the E × B drift.</p>
 <hr/>
-<h2 id="2-pseudocode">📜 <strong>2. Pseudocode</strong></h2>
-<pre><code class="language-plaintext">Function calculate_equivalent_resistance(graph, source, target):
+<h2 id="1-applications-of-the-lorentz-force">1️⃣ <strong>Applications of the Lorentz Force</strong></h2>
+<h3 id="real-world-systems-where-it-applies">🔬 Real-World Systems Where It Applies:</h3>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Lorentz Force Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Particle Accelerators</strong></td>
+<td>Control particle orbits with magnetic fields; acceleration with electric fields</td>
+</tr>
+<tr>
+<td><strong>Mass Spectrometers</strong></td>
+<td>Sorts particles by mass-to-charge ratio via magnetic deflection</td>
+</tr>
+<tr>
+<td><strong>Plasma Confinement</strong></td>
+<td>Magnetic fields trap high-energy charged particles (e.g., in tokamaks, stellarators)</td>
+</tr>
+<tr>
+<td><strong>Cathode Ray Tubes</strong></td>
+<td>Electric and magnetic deflection of electrons to form images</td>
+</tr>
+<tr>
+<td><strong>Auroras / Magnetosphere</strong></td>
+<td>Charged particles spiral along Earth's magnetic field lines</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="2-theory-refresher-lorentz-force-law">2️⃣ <strong>Theory Refresher: Lorentz Force Law</strong></h2>
+<div class="arithmatex">\[
+\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<ul>
+<li><span class="arithmatex">\(\vec{F}\)</span>: net force acting on the particle</li>
+<li><span class="arithmatex">\(q\)</span>: charge of the particle</li>
+<li><span class="arithmatex">\(\vec{E}\)</span>: electric field (vector)</li>
+<li><span class="arithmatex">\(\vec{B}\)</span>: magnetic field (vector)</li>
+<li><span class="arithmatex">\(\vec{v}\)</span>: velocity of the particle</li>
+</ul>
+<p>The resulting acceleration affects the trajectory in a non-linear way. The motion depends heavily on the direction and magnitude of fields and the initial conditions.</p>
+<hr/>
+<h2 id="3-numerical-simulation">3️⃣ <strong>Numerical Simulation</strong></h2>
+<p>We'll simulate this using the <strong>Euler method</strong> for simplicity, though a more accurate <strong>Runge-Kutta method</strong> can be implemented later.</p>
+<hr/>
+<h3 id="python-implementation">🔧 Python Implementation</h3>
+<p><img alt="alt text" src="../image-5.png"/>
+<img alt="alt text" src="../image-6.png"/></p>
+<h3 id="3d-visualization-of-trajectory">📈 3D Visualization of Trajectory</h3>
+<p><img alt="alt text" src="../image-7.png"/></p>
+<hr/>
+<h2 id="4-parameter-exploration-and-motion-types">4️⃣ <strong>Parameter Exploration and Motion Types</strong></h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Description</th>
+<th>Motion Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\vec{B} \neq 0, \vec{E} = 0\)</span></td>
+<td>Pure magnetic field</td>
+<td>Circular or helical</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\vec{E} \neq 0, \vec{B} = 0\)</span></td>
+<td>Pure electric field</td>
+<td>Linear acceleration</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\vec{E} \parallel \vec{B}\)</span></td>
+<td>Fields aligned</td>
+<td>Spiraling/acceleration</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\vec{E} \perp \vec{B}\)</span></td>
+<td>Crossed fields (ExB)</td>
+<td>Drift motion</td>
+</tr>
+</tbody>
+</table>
+<h3 id="larmor-radius-cyclotron-frequency">✳️ Larmor Radius &amp; Cyclotron Frequency:</h3>
+<div class="arithmatex">\[
+r_L = \frac{mv_\perp}{qB}, \quad \omega_c = \frac{qB}{m}
+\]</div>
+<pre><code class="language-python">def larmor_radius(v_perp, B, q, m):
+    return m * v_perp / (q * B)
 
-    While graph has more than one edge between source and target:
-        1. For all node pairs (u, v):
-            a. If multiple edges exist between u and v:
-                Combine them in parallel:
-                    R_parallel = 1 / sum(1 / R for R in edges[u][v])
-                    Replace with one edge (u, v) with R_parallel
+def cyclotron_frequency(B, q, m):
+    return q * B / m
 
-        2. For each node n in graph:
-            If degree(n) == 2 and n not in [source, target]:
-                Let neighbors be [u, v]
-                Combine edges (u, n) and (n, v) in series:
-                    R_series = R(u,n) + R(n,v)
-                    Remove node n and add edge (u, v) with R_series
+v_perp = np.linalg.norm(v0[:2])
+B_mag = np.linalg.norm(B_field)
 
-    If single edge (source, target):
-        Return resistance of that edge
-    Else:
-        Apply Y-Δ or advanced transformations (not in base implementation)
+print("Larmor radius:", larmor_radius(v_perp, B_mag, q, m))
+print("Cyclotron frequency:", cyclotron_frequency(B_mag, q, m))
 </code></pre>
 <hr/>
-<h2 id="3-python-implementation">🧪 <strong>3. Python Implementation</strong></h2>
-<p><img alt="alt text" src="../image.png"/>
-<img alt="alt text" src="../image-1.png"/>
-<img alt="alt text" src="../image-2.png"/>
-<img alt="alt text" src="../image-3.png"/></p>
-<hr/>
-<h2 id="4-test-cases">🧪 <strong>4. Test Cases</strong></h2>
-<pre><code class="language-python"># Test Case 1: Simple series
-G1 = nx.Graph()
-G1.add_edge('A', 'B', resistance=5)
-G1.add_edge('B', 'C', resistance=10)
-print("Test 1 (Series):", equivalent_resistance(G1, 'A', 'C'))  # Expected: 15
-
-# Test Case 2: Simple parallel
-G2 = nx.MultiGraph()
-G2.add_edge('A', 'B', resistance=6)
-G2.add_edge('A', 'B', resistance=3)
-print("Test 2 (Parallel):", equivalent_resistance(G2, 'A', 'B'))  # Expected: 2
-
-# Test Case 3: Nested combination
-G3 = nx.MultiGraph()
-G3.add_edge('A', 'B', resistance=2)
-G3.add_edge('B', 'C', resistance=2)
-G3.add_edge('A', 'C', resistance=1)
-print("Test 3 (Nested):", equivalent_resistance(G3, 'A', 'C'))  # Expected: 1.2
-</code></pre>
-<hr/>
-<h2 id="5-efficiency-analysis-improvements">🧠 <strong>5. Efficiency Analysis &amp; Improvements</strong></h2>
+<h2 id="5-interactive-parameter-playground-optional-in-jupyter">5️⃣ <strong>Interactive Parameter Playground (Optional in Jupyter)</strong></h2>
+<p><img alt="alt text" src="../image-8.png"/></p>
+<p>Bz
+5
+Ex
+5
+Ey
+-1
+vx
+1
+vy
+0
+vz
+0
+q_val
+1.00
+m_val
+1.00</p>
+<h2 id="6-connecting-back-to-real-systems">6️⃣ <strong>Connecting Back to Real Systems</strong></h2>
+<h3 id="cyclotron">📚 Cyclotron:</h3>
 <ul>
-<li><strong>Time Complexity</strong>: Each reduction pass (series or parallel) operates in linear time relative to the number of nodes and edges. Worst-case complexity is roughly <code>O(n^2)</code> due to repeated passes.</li>
-<li>
-<p><strong>Improvements</strong>:</p>
-</li>
-<li>
-<p>Implement <strong>Y-Δ transformations</strong> for general planar graphs.</p>
-</li>
-<li>Use <strong>graph contraction</strong> methods to identify reducible subnetworks faster.</li>
-<li>Add <strong>memoization</strong> or <strong>caching</strong> for repeated subgraphs in large circuits.</li>
+<li><span class="arithmatex">\(\vec{E}\)</span> accelerates particle</li>
+<li><span class="arithmatex">\(\vec{B}\)</span> bends into circular motion</li>
+<li>Frequency tuned to match cyclotron resonance</li>
+</ul>
+<h3 id="tokamak">⚡ Tokamak:</h3>
+<ul>
+<li>Toroidal magnetic field creates confinement</li>
+<li>Particles spiral along field lines</li>
+<li>E × B drift can be used to stabilize plasma</li>
+</ul>
+<h3 id="mass-spectrometry">🧪 Mass Spectrometry:</h3>
+<ul>
+<li>Particles injected into magnetic field</li>
+<li>Deflection radius reveals <span class="arithmatex">\(m/q\)</span></li>
 </ul>
 <hr/>
-<p><img alt="alt text" src="../image-4.png"/></p>
+<h2 id="7-extension-ideas">7️⃣ <strong>Extension Ideas</strong></h2>
+<p>Here’s how you can expand this:</p>
+<ul>
+<li>✅ Use <strong>Runge-Kutta 4th Order</strong> for improved accuracy</li>
+<li>✅ Simulate <strong>non-uniform magnetic fields</strong> (field gradients or dipoles)</li>
+<li>✅ Add <strong>particle collisions</strong> with barriers</li>
+<li>✅ Simulate <strong>plasma clouds</strong> (many particles)</li>
+<li>✅ Include <strong>radiation damping</strong> (for high-energy electrons)</li>
+</ul>
+<hr/>
+<h2 id="final-deliverables-checklist">📦 Final Deliverables Checklist</h2>
+<ul>
+<li>[x] Python script / notebook implementing Lorentz Force</li>
+<li>[x] Visualization: 2D and 3D particle trajectories</li>
+<li>[x] Application discussion: cyclotrons, plasmas, spectrometers</li>
+<li>[x] Parameter sliders for field strength, charge/mass, and initial velocity</li>
+<li>[x] Physical interpretation: Larmor radius, drift velocity</li>
+</ul>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
