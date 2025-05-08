@@ -1,5 +1,5 @@
 # Problem 1
-Great! Let’s tackle **Option 2: Advanced Task – Full Implementation** using **Python** and the **NetworkX** library to represent and manipulate the circuit graph. This solution will include:
+ **Option 2: Advanced Task – Full Implementation** using **Python** and the **NetworkX** library to represent and manipulate the circuit graph. This solution will include:
 
 1. **Algorithm Design & Pseudocode**
 2. **Full Python Implementation**
