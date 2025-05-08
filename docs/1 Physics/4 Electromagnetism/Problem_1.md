@@ -1,100 +1,155 @@
 # Problem 1
- **Option 2: Advanced Task – Full Implementation** using **Python** and the **NetworkX** library to represent and manipulate the circuit graph. This solution will include:
+ 
+---
 
-1. **Algorithm Design & Pseudocode**
-2. **Full Python Implementation**
-3. **Three Test Cases (including complex nested configurations)**
-4. **Efficiency Discussion & Improvements**
+# 🧲 **Simulating the Effects of the Lorentz Force**
+
+## ✨ Overview
+
+This notebook demonstrates the **dynamics of charged particles** under electric and magnetic fields using the **Lorentz Force Law**. It builds simulations and visualizations for various field configurations—highlighting important physical phenomena like circular motion, helical paths, and the E × B drift.
 
 ---
 
-## 🔧 **1. Algorithm Overview**
+## 1️⃣ **Applications of the Lorentz Force**
 
-**Graph Representation:**
+### 🔬 Real-World Systems Where It Applies:
 
-* Each node: A junction in the circuit.
-* Each edge: A resistor, with a weight attribute for its resistance.
-
-**Reduction Rules:**
-
-* **Series**: If a node has exactly two edges and is not a terminal node (i.e., not a source or sink), combine the resistors in series:
-  $R_{eq} = R_1 + R_2$
-* **Parallel**: If multiple resistors connect the same two nodes, combine in parallel:
-  $\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots$
+| System                      | Lorentz Force Role                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------ |
+| **Particle Accelerators**   | Control particle orbits with magnetic fields; acceleration with electric fields      |
+| **Mass Spectrometers**      | Sorts particles by mass-to-charge ratio via magnetic deflection                      |
+| **Plasma Confinement**      | Magnetic fields trap high-energy charged particles (e.g., in tokamaks, stellarators) |
+| **Cathode Ray Tubes**       | Electric and magnetic deflection of electrons to form images                         |
+| **Auroras / Magnetosphere** | Charged particles spiral along Earth's magnetic field lines                          |
 
 ---
 
-## 📜 **2. Pseudocode**
+## 2️⃣ **Theory Refresher: Lorentz Force Law**
 
-```plaintext
-Function calculate_equivalent_resistance(graph, source, target):
+$$
+\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
+$$
 
-    While graph has more than one edge between source and target:
-        1. For all node pairs (u, v):
-            a. If multiple edges exist between u and v:
-                Combine them in parallel:
-                    R_parallel = 1 / sum(1 / R for R in edges[u][v])
-                    Replace with one edge (u, v) with R_parallel
+* $\vec{F}$: net force acting on the particle
+* $q$: charge of the particle
+* $\vec{E}$: electric field (vector)
+* $\vec{B}$: magnetic field (vector)
+* $\vec{v}$: velocity of the particle
 
-        2. For each node n in graph:
-            If degree(n) == 2 and n not in [source, target]:
-                Let neighbors be [u, v]
-                Combine edges (u, n) and (n, v) in series:
-                    R_series = R(u,n) + R(n,v)
-                    Remove node n and add edge (u, v) with R_series
-
-    If single edge (source, target):
-        Return resistance of that edge
-    Else:
-        Apply Y-Δ or advanced transformations (not in base implementation)
-```
+The resulting acceleration affects the trajectory in a non-linear way. The motion depends heavily on the direction and magnitude of fields and the initial conditions.
 
 ---
 
-## 🧪 **3. Python Implementation**
+## 3️⃣ **Numerical Simulation**
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-
+We'll simulate this using the **Euler method** for simplicity, though a more accurate **Runge-Kutta method** can be implemented later.
 
 ---
 
-## 🧪 **4. Test Cases**
+### 🔧 Python Implementation
+
+![alt text](image-5.png)
+![alt text](image-6.png)
+
+### 📈 3D Visualization of Trajectory
+
+
+![alt text](image-7.png)
+
+---
+
+## 4️⃣ **Parameter Exploration and Motion Types**
+
+| Scenario                      | Description          | Motion Type            |
+| ----------------------------- | -------------------- | ---------------------- |
+| $\vec{B} \neq 0, \vec{E} = 0$ | Pure magnetic field  | Circular or helical    |
+| $\vec{E} \neq 0, \vec{B} = 0$ | Pure electric field  | Linear acceleration    |
+| $\vec{E} \parallel \vec{B}$   | Fields aligned       | Spiraling/acceleration |
+| $\vec{E} \perp \vec{B}$       | Crossed fields (ExB) | Drift motion           |
+
+### ✳️ Larmor Radius & Cyclotron Frequency:
+
+$$
+r_L = \frac{mv_\perp}{qB}, \quad \omega_c = \frac{qB}{m}
+$$
 
 ```python
-# Test Case 1: Simple series
-G1 = nx.Graph()
-G1.add_edge('A', 'B', resistance=5)
-G1.add_edge('B', 'C', resistance=10)
-print("Test 1 (Series):", equivalent_resistance(G1, 'A', 'C'))  # Expected: 15
+def larmor_radius(v_perp, B, q, m):
+    return m * v_perp / (q * B)
 
-# Test Case 2: Simple parallel
-G2 = nx.MultiGraph()
-G2.add_edge('A', 'B', resistance=6)
-G2.add_edge('A', 'B', resistance=3)
-print("Test 2 (Parallel):", equivalent_resistance(G2, 'A', 'B'))  # Expected: 2
+def cyclotron_frequency(B, q, m):
+    return q * B / m
 
-# Test Case 3: Nested combination
-G3 = nx.MultiGraph()
-G3.add_edge('A', 'B', resistance=2)
-G3.add_edge('B', 'C', resistance=2)
-G3.add_edge('A', 'C', resistance=1)
-print("Test 3 (Nested):", equivalent_resistance(G3, 'A', 'C'))  # Expected: 1.2
+v_perp = np.linalg.norm(v0[:2])
+B_mag = np.linalg.norm(B_field)
+
+print("Larmor radius:", larmor_radius(v_perp, B_mag, q, m))
+print("Cyclotron frequency:", cyclotron_frequency(B_mag, q, m))
 ```
 
 ---
 
-## 🧠 **5. Efficiency Analysis & Improvements**
+## 5️⃣ **Interactive Parameter Playground (Optional in Jupyter)**
 
-* **Time Complexity**: Each reduction pass (series or parallel) operates in linear time relative to the number of nodes and edges. Worst-case complexity is roughly `O(n^2)` due to repeated passes.
-* **Improvements**:
+![alt text](image-8.png)
 
-  * Implement **Y-Δ transformations** for general planar graphs.
-  * Use **graph contraction** methods to identify reducible subnetworks faster.
-  * Add **memoization** or **caching** for repeated subgraphs in large circuits.
+Bz
+5
+Ex
+5
+Ey
+-1
+vx
+1
+vy
+0
+vz
+0
+q_val
+1.00
+m_val
+1.00
+
+
+## 6️⃣ **Connecting Back to Real Systems**
+
+### 📚 Cyclotron:
+
+* $\vec{E}$ accelerates particle
+* $\vec{B}$ bends into circular motion
+* Frequency tuned to match cyclotron resonance
+
+### ⚡ Tokamak:
+
+* Toroidal magnetic field creates confinement
+* Particles spiral along field lines
+* E × B drift can be used to stabilize plasma
+
+### 🧪 Mass Spectrometry:
+
+* Particles injected into magnetic field
+* Deflection radius reveals $m/q$
 
 ---
 
-![alt text](image-4.png)
+## 7️⃣ **Extension Ideas**
+
+Here’s how you can expand this:
+
+* ✅ Use **Runge-Kutta 4th Order** for improved accuracy
+* ✅ Simulate **non-uniform magnetic fields** (field gradients or dipoles)
+* ✅ Add **particle collisions** with barriers
+* ✅ Simulate **plasma clouds** (many particles)
+* ✅ Include **radiation damping** (for high-energy electrons)
+
+---
+
+## 📦 Final Deliverables Checklist
+
+* [x] Python script / notebook implementing Lorentz Force
+* [x] Visualization: 2D and 3D particle trajectories
+* [x] Application discussion: cyclotrons, plasmas, spectrometers
+* [x] Parameter sliders for field strength, charge/mass, and initial velocity
+* [x] Physical interpretation: Larmor radius, drift velocity
+
+---
