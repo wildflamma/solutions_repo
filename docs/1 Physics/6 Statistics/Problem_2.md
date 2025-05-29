@@ -1,5 +1,5 @@
 # Problem 2
-Here’s the complete Python code and structure for your Monte Carlo estimation project, broken into two methods:
+ Monte Carlo estimation project
 
 ### ✅ Part 1: Circle-Based Estimation
 
