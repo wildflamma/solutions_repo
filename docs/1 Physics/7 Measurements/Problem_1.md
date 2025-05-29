@@ -1,7 +1,5 @@
 # Problem 1
-Got it! Here’s a straightforward, no-BS breakdown for your pendulum gravity lab, including a markdown table template for your data and a discussion outline on uncertainties.
 
----
 
 ### Pendulum Gravity Measurement — Complete Guide
 
@@ -245,7 +243,6 @@ $$
 
 * **Improvements:**
   Use electronic timing (light gate), measure longer pendulum lengths to reduce relative error, or increase number of oscillations timed.
-
 ---
 
 
