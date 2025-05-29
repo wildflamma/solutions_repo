@@ -84,6 +84,16 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#central-limit-theorem-clt-simulation-full-project">📓 Central Limit Theorem (CLT) Simulation — Full Project</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#6-observations-analysis">📌 6. Observations &amp; Analysis</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#7-real-world-applications-of-clt">🧠 7. Real-World Applications of CLT</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#8-summary-of-project-goals">✅ 8. Summary of Project Goals</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -172,6 +182,101 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<hr/>
+<h2 id="central-limit-theorem-clt-simulation-full-project">📓 <strong>Central Limit Theorem (CLT) Simulation — Full Project</strong></h2>
+<blockquote>
+<p>This notebook demonstrates the Central Limit Theorem using Python simulations. You will observe how sample means from various population distributions (Uniform, Exponential, Binomial) tend to follow a normal distribution as the sample size increases — even when the original data does not.</p>
+</blockquote>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<h3 id="6-observations-analysis">📌 <strong>6. Observations &amp; Analysis</strong></h3>
+<h4 id="key-observations">🔍 Key Observations:</h4>
+<ul>
+<li><strong>Uniform Distribution</strong>: Already symmetric, so the sample mean distribution quickly resembles a normal curve.</li>
+<li><strong>Exponential Distribution</strong>: Highly skewed, but the sampling distribution still becomes normal as sample size increases.</li>
+<li><strong>Binomial Distribution</strong>: Starts as discrete, but its sample means smooth out and become approximately normal with larger samples.</li>
+</ul>
+<h4 id="convergence-rule">📏 Convergence Rule:</h4>
+<p>As <strong>sample size increases</strong>, the <strong>sampling distribution of the mean</strong> approaches normality due to the <strong>Central Limit Theorem</strong>.
+The spread of the sampling distribution is given by:</p>
+<div class="arithmatex">\[
+\text{Standard Error} = \frac{\sigma}{\sqrt{n}}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(\sigma\)</span>: Standard deviation of the population</li>
+<li><span class="arithmatex">\(n\)</span>: Sample size</li>
+</ul>
+<hr/>
+<h3 id="7-real-world-applications-of-clt">🧠 <strong>7. Real-World Applications of CLT</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🧪 Science</td>
+<td>Experimental averages from small groups (e.g. blood pressure studies)</td>
+</tr>
+<tr>
+<td>📊 Business</td>
+<td>Customer feedback and polling from random samples</td>
+</tr>
+<tr>
+<td>🏭 Manufacturing</td>
+<td>Monitoring quality control via batch averages</td>
+</tr>
+<tr>
+<td>📈 Finance</td>
+<td>Modeling portfolio returns with sample estimates</td>
+</tr>
+<tr>
+<td>💊 Medicine</td>
+<td>Drug trials comparing treatment effects across patients</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="8-summary-of-project-goals">✅ <strong>8. Summary of Project Goals</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simulated Uniform, Exponential, and Binomial Populations</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sampled Means at Various Sizes</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Plotted Sampling Distributions</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Analyzed Population Stats (mean, variance, skewness)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Interpreted and Connected to CLT Theory</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Outlined Practical Uses</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
