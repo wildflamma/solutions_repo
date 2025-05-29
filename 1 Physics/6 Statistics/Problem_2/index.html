@@ -86,6 +86,10 @@
 </li>
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#part-1-circle-based-estimation">✅ Part 1: Circle-Based Estimation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-buffons-needle">✅ Part 2: Buffon’s Needle</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,6 +176,69 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<p>Here’s the complete Python code and structure for your Monte Carlo estimation project, broken into two methods:</p>
+<h3 id="part-1-circle-based-estimation">✅ Part 1: Circle-Based Estimation</h3>
+<ul>
+<li>Generates random <code>(x, y)</code> points in a square bounding a unit circle.</li>
+<li>Calculates π using the ratio:</li>
+</ul>
+<p>$$
+  \pi \approx 4 \times \frac{\text{Points inside circle}}{\text{Total points}}
+  $$
+* Includes a visualization to differentiate points inside vs outside the circle.</p>
+<p><img alt="alt text" src="../image-4.png"/></p>
+<h3 id="part-2-buffons-needle">✅ Part 2: Buffon’s Needle</h3>
+<ul>
+<li>Simulates dropping a needle on a floor with parallel lines.</li>
+<li>Uses the formula:</li>
+</ul>
+<p>$$
+  \pi \approx \frac{2 \cdot L \cdot N}{d \cdot C}
+  $$</p>
+<p>where <code>L</code> = needle length, <code>N</code> = total drops, <code>d</code> = distance between lines, <code>C</code> = crosses.</p>
+<p><img alt="alt text" src="../image-5.png"/></p>
+<p><img alt="alt text" src="../image-6.png"/></p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Circle Method</th>
+<th>Buffon’s Needle Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Principle</td>
+<td>Geometric probability in 2D square</td>
+<td>Probability of crossing lines on a plane</td>
+</tr>
+<tr>
+<td>Key formula for π</td>
+<td><span class="arithmatex">\(\pi \approx 4 \times \frac{M}{N}\)</span></td>
+<td><span class="arithmatex">\(\pi \approx \frac{2 l N}{d M}\)</span></td>
+</tr>
+<tr>
+<td>Type of random samples</td>
+<td>Points uniformly in a square</td>
+<td>Needle drops with random position &amp; angle</td>
+</tr>
+<tr>
+<td>Intuition</td>
+<td>Ratio of areas</td>
+<td>Ratio of needle crossing probability</td>
+</tr>
+<tr>
+<td>Practical complexity</td>
+<td>Simple to implement &amp; visualize</td>
+<td>More complex geometry &amp; simulation</td>
+</tr>
+<tr>
+<td>Convergence rate</td>
+<td><span class="arithmatex">\(O(1/\sqrt{N})\)</span> due to randomness</td>
+<td>Similar, but generally slower convergence</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
