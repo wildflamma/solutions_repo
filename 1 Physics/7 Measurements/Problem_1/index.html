@@ -92,6 +92,38 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#pendulum-gravity-measurement-complete-guide">Pendulum Gravity Measurement — Complete Guide</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-data-collection-setup-recap">Step 1: Data Collection Setup Recap</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-calculations">Step 2: Calculations</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-markdown-table-template">Step 3: Markdown Table Template</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-discussion-uncertainty-sources-effects">Step 4: Discussion — Uncertainty Sources &amp; Effects</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-pendulum-gravity-lab-full-calculation">Example Pendulum Gravity Lab — Full Calculation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-data-10-trials-of-time-for-10-oscillations">1. Data (10 trials of time for 10 oscillations)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#2-calculate-mean-and-standard-deviation-of-t_10">2. Calculate Mean and Standard Deviation of \(T_{10}\)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#3-uncertainty-in-mean">3. Uncertainty in mean</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#4-calculate-period-t-and-uncertainty">4. Calculate Period \(T\) and uncertainty</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#5-length-l">5. Length \(L\)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#6-calculate-g">6. Calculate \(g\)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#7-propagate-uncertainty-in-g">7. Propagate uncertainty in \(g\)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#final-result">Final result:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#8-discussion-brief">8. Discussion (brief)</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,6 +204,318 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<p>Got it! Here’s a straightforward, no-BS breakdown for your pendulum gravity lab, including a markdown table template for your data and a discussion outline on uncertainties.</p>
+<hr/>
+<h3 id="pendulum-gravity-measurement-complete-guide">Pendulum Gravity Measurement — Complete Guide</h3>
+<hr/>
+<h3 id="step-1-data-collection-setup-recap">Step 1: Data Collection Setup Recap</h3>
+<ul>
+<li><strong>Pendulum length (L):</strong> Measure with a ruler or tape, e.g., 1.00 m ± half the smallest division.</li>
+<li><strong>Time for 10 oscillations (T_10):</strong> Use a stopwatch; repeat 10 times.</li>
+<li>
+<p><strong>Calculate:</strong></p>
+</li>
+<li>
+<p>Mean time for 10 oscillations <span class="arithmatex">\(\overline{T_{10}}\)</span></p>
+</li>
+<li>Standard deviation <span class="arithmatex">\(\sigma\)</span></li>
+<li>Uncertainty in mean time <span class="arithmatex">\(\sigma_{\overline{T_{10}}} = \frac{\sigma}{\sqrt{10}}\)</span></li>
+</ul>
+<hr/>
+<h3 id="step-2-calculations">Step 2: Calculations</h3>
+<ul>
+<li><strong>Period <span class="arithmatex">\(T\)</span>:</strong></li>
+</ul>
+<p>$$
+  T = \frac{\overline{T_{10}}}{10}
+  $$</p>
+<p>Uncertainty in <span class="arithmatex">\(T\)</span>:</p>
+<p>$$
+  \sigma_T = \frac{\sigma_{\overline{T_{10}}}}{10}
+  $$</p>
+<ul>
+<li><strong>Gravity <span class="arithmatex">\(g\)</span>:</strong></li>
+</ul>
+<p>$$
+  g = \frac{4\pi^2 L}{T^2}
+  $$</p>
+<ul>
+<li><strong>Uncertainty in <span class="arithmatex">\(g\)</span> (propagation):</strong></li>
+</ul>
+<p>$$
+  \frac{\sigma_g}{g} = \sqrt{\left(\frac{\sigma_L}{L}\right)^2 + \left(2\frac{\sigma_T}{T}\right)^2}
+  $$</p>
+<p>$$
+  \sigma_g = g \times \frac{\sigma_g}{g}
+  $$</p>
+<hr/>
+<h3 id="step-3-markdown-table-template">Step 3: Markdown Table Template</h3>
+<pre><code class="language-markdown">| Trial | \(T_{10}\) (s) | Notes (optional) |
+|-------|----------------|------------------|
+| 1     | 20.30          |                  |
+| 2     | 20.45          |                  |
+| 3     | 20.25          |                  |
+| 4     | 20.50          |                  |
+| 5     | 20.35          |                  |
+| 6     | 20.40          |                  |
+| 7     | 20.38          |                  |
+| 8     | 20.32          |                  |
+| 9     | 20.44          |                  |
+| 10    | 20.36          |                  |
+
+**Length of pendulum, \(L\):** 1.00 ± 0.005 m  
+**Mean time for 10 oscillations, \(\overline{T_{10}}\):** 20.37 s  
+**Standard deviation, \(\sigma\):** 0.07 s  
+**Uncertainty in mean time, \(\sigma_{\overline{T_{10}}}\):** 0.022 s  
+**Period, \(T\):** 2.037 ± 0.0022 s  
+**Calculated gravity, \(g\):** 9.79 ± 0.07 m/s²  
+</code></pre>
+<hr/>
+<h3 id="step-4-discussion-uncertainty-sources-effects">Step 4: Discussion — Uncertainty Sources &amp; Effects</h3>
+<ul>
+<li>
+<p><strong>Measurement resolution on <span class="arithmatex">\(L\)</span>:</strong>
+  Using a ruler with 1 mm resolution means ±0.5 mm uncertainty in length. Since <span class="arithmatex">\(g\)</span> depends linearly on <span class="arithmatex">\(L\)</span>, even small errors in length directly affect <span class="arithmatex">\(g\)</span>.</p>
+</li>
+<li>
+<p><strong>Timing variability:</strong>
+  Reaction time causes random errors in start/stop of the stopwatch, affecting <span class="arithmatex">\(T_{10}\)</span>. Measuring over 10 oscillations instead of 1 reduces relative timing error, but variability remains, impacting <span class="arithmatex">\(g\)</span> quadratically (since <span class="arithmatex">\(g \propto 1/T^2\)</span>).</p>
+</li>
+<li>
+<p><strong>Small angle assumption:</strong>
+  Displacing less than 15° keeps pendulum motion close to simple harmonic, making formula valid. Larger angles introduce nonlinearity, skewing results.</p>
+</li>
+<li>
+<p><strong>Air resistance and friction:</strong>
+  Minor damping forces can alter period slightly but usually negligible at low amplitude and short times.</p>
+</li>
+<li>
+<p><strong>Mass distribution:</strong>
+  Assuming point mass at the bob’s center may introduce slight errors if the mass isn’t compact or length is measured inaccurately to center of mass.</p>
+</li>
+<li>
+<p><strong>Experimental limitations:</strong>
+  Environmental vibrations, imprecise length measurement (where exactly to measure?), and human timing errors limit precision.</p>
+</li>
+</ul>
+<hr/>
+<h2 id="example-pendulum-gravity-lab-full-calculation">Example Pendulum Gravity Lab — Full Calculation</h2>
+<hr/>
+<h3 id="1-data-10-trials-of-time-for-10-oscillations">1. Data (10 trials of time for 10 oscillations)</h3>
+<table>
+<thead>
+<tr>
+<th>Trial</th>
+<th><span class="arithmatex">\(T_{10}\)</span> (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>20.30</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20.45</td>
+</tr>
+<tr>
+<td>3</td>
+<td>20.25</td>
+</tr>
+<tr>
+<td>4</td>
+<td>20.50</td>
+</tr>
+<tr>
+<td>5</td>
+<td>20.35</td>
+</tr>
+<tr>
+<td>6</td>
+<td>20.40</td>
+</tr>
+<tr>
+<td>7</td>
+<td>20.38</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20.32</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20.44</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20.36</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="2-calculate-mean-and-standard-deviation-of-t_10">2. Calculate Mean and Standard Deviation of <span class="arithmatex">\(T_{10}\)</span></h3>
+<ul>
+<li>
+<p>Mean <span class="arithmatex">\(\overline{T_{10}} = \frac{20.30 + 20.45 + \dots + 20.36}{10} = 20.37 \text{ s}\)</span></p>
+</li>
+<li>
+<p>Standard deviation <span class="arithmatex">\(\sigma\)</span>:</p>
+</li>
+</ul>
+<p>Let me do the quick calculation:</p>
+<div class="arithmatex">\[
+\sigma = \sqrt{\frac{1}{9}\sum (T_{10,i} - \overline{T_{10}})^2}
+\]</div>
+<p>Calculating the squared differences and then the sum:</p>
+<table>
+<thead>
+<tr>
+<th>Trial</th>
+<th><span class="arithmatex">\(T_{10,i}\)</span></th>
+<th><span class="arithmatex">\(T_{10,i} - 20.37\)</span></th>
+<th>Square</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>20.30</td>
+<td>-0.07</td>
+<td>0.0049</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20.45</td>
+<td>0.08</td>
+<td>0.0064</td>
+</tr>
+<tr>
+<td>3</td>
+<td>20.25</td>
+<td>-0.12</td>
+<td>0.0144</td>
+</tr>
+<tr>
+<td>4</td>
+<td>20.50</td>
+<td>0.13</td>
+<td>0.0169</td>
+</tr>
+<tr>
+<td>5</td>
+<td>20.35</td>
+<td>-0.02</td>
+<td>0.0004</td>
+</tr>
+<tr>
+<td>6</td>
+<td>20.40</td>
+<td>0.03</td>
+<td>0.0009</td>
+</tr>
+<tr>
+<td>7</td>
+<td>20.38</td>
+<td>0.01</td>
+<td>0.0001</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20.32</td>
+<td>-0.05</td>
+<td>0.0025</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20.44</td>
+<td>0.07</td>
+<td>0.0049</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20.36</td>
+<td>-0.01</td>
+<td>0.0001</td>
+</tr>
+</tbody>
+</table>
+<p>Sum of squares = 0.0519</p>
+<div class="arithmatex">\[
+\sigma = \sqrt{\frac{0.0519}{9}} = \sqrt{0.00577} = 0.076 \text{ s}
+\]</div>
+<hr/>
+<h3 id="3-uncertainty-in-mean">3. Uncertainty in mean</h3>
+<div class="arithmatex">\[
+\sigma_{\overline{T_{10}}} = \frac{\sigma}{\sqrt{10}} = \frac{0.076}{3.16} = 0.024 \text{ s}
+\]</div>
+<hr/>
+<h3 id="4-calculate-period-t-and-uncertainty">4. Calculate Period <span class="arithmatex">\(T\)</span> and uncertainty</h3>
+<div class="arithmatex">\[
+T = \frac{20.37}{10} = 2.037 \text{ s}
+\]</div>
+<div class="arithmatex">\[
+\sigma_T = \frac{0.024}{10} = 0.0024 \text{ s}
+\]</div>
+<hr/>
+<h3 id="5-length-l">5. Length <span class="arithmatex">\(L\)</span></h3>
+<p>Measured length = 1.00 m with ruler resolution 1 mm → uncertainty</p>
+<div class="arithmatex">\[
+\sigma_L = \frac{1 \text{ mm}}{2} = 0.5 \text{ mm} = 0.0005 \text{ m}
+\]</div>
+<hr/>
+<h3 id="6-calculate-g">6. Calculate <span class="arithmatex">\(g\)</span></h3>
+<div class="arithmatex">\[
+g = \frac{4 \pi^2 L}{T^2} = \frac{4 \times 9.8696 \times 1.00}{(2.037)^2} = \frac{39.478}{4.150} = 9.51 \text{ m/s}^2
+\]</div>
+<hr/>
+<h3 id="7-propagate-uncertainty-in-g">7. Propagate uncertainty in <span class="arithmatex">\(g\)</span></h3>
+<p>Relative uncertainties:</p>
+<div class="arithmatex">\[
+\frac{\sigma_L}{L} = \frac{0.0005}{1.00} = 0.0005
+\]</div>
+<div class="arithmatex">\[
+\frac{\sigma_T}{T} = \frac{0.0024}{2.037} = 0.00118
+\]</div>
+<div class="arithmatex">\[
+\frac{\sigma_g}{g} = \sqrt{(0.0005)^2 + (2 \times 0.00118)^2} = \sqrt{2.5 \times 10^{-7} + 5.56 \times 10^{-6}} = \sqrt{5.81 \times 10^{-6}} = 0.00241
+\]</div>
+<p>Absolute uncertainty:</p>
+<div class="arithmatex">\[
+\sigma_g = 9.51 \times 0.00241 = 0.023 \text{ m/s}^2
+\]</div>
+<hr/>
+<h3 id="final-result"><strong>Final result:</strong></h3>
+<div class="arithmatex">\[
+\boxed{
+g = 9.51 \pm 0.02 \text{ m/s}^2
+}
+\]</div>
+<hr/>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<h3 id="8-discussion-brief">8. Discussion (brief)</h3>
+<ul>
+<li>
+<p><strong>Value compared to standard <span class="arithmatex">\(9.81 \text{ m/s}^2\)</span>:</strong>
+  Your result is slightly low (\~3%), likely due to timing errors or length measurement bias.</p>
+</li>
+<li>
+<p><strong>Timing error dominates:</strong>
+  Although measuring 10 oscillations reduces random error, human reaction time (\~0.1 s) still creeps in.</p>
+</li>
+<li>
+<p><strong>Length measurement is precise:</strong>
+  Ruler uncertainty is negligible compared to timing uncertainty.</p>
+</li>
+<li>
+<p><strong>Small angle approximation valid:</strong>
+  If angle &gt;15°, the period gets longer than the ideal formula, causing underestimation of <span class="arithmatex">\(g\)</span>.</p>
+</li>
+<li>
+<p><strong>Improvements:</strong>
+  Use electronic timing (light gate), measure longer pendulum lengths to reduce relative error, or increase number of oscillations timed.</p>
+</li>
+</ul>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
